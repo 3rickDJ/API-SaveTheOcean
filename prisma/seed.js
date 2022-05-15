@@ -12,7 +12,8 @@ const prisma = new PrismaClient();
                 type: 'null',
                 amountAlive: 10,
                 info: 'Over the last 200 years, human activities have tipped the scales against the survival of these ancient mariners. Slaughtered for their eggs, meat, skin, and shells, sea turtles suffer from poaching and over-exploitation',
-                location: 'Open water and coasts'
+                location: 'Open water and coasts',
+                image: 'url'
             },
         });
 
@@ -25,7 +26,8 @@ const prisma = new PrismaClient();
                 type: 'show_type',
                 amountAlive: 9,
                 info: 'info_text',
-                location: 'location_text'
+                location: 'location_text',
+                image: 'url'
             },
         });
 
@@ -38,7 +40,8 @@ const prisma = new PrismaClient();
                 type: 'show_type',
                 amountAlive: 9,
                 info: 'info_text',
-                location: 'location_text'
+                location: 'location_text',
+                image: 'url'
             },
         });
 
@@ -51,7 +54,8 @@ const prisma = new PrismaClient();
                 type: 'show_type',
                 amountAlive: 9,
                 info: 'info_text',
-                location: 'location_text'
+                location: 'location_text',
+                image: 'url'
             },
         });
 

@@ -18,4 +18,5 @@ model Animal {
   amountAlive Int
   info String @db.VarChar(255)
   location String @db.VarChar(255)
+  image String @db.VarChar(255)
 }
