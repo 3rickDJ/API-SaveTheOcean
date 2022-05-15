@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "linter": "node ./node_modules/.bin/eslint .",
+    "linter-fix": "node ./node_modules/.bin/eslint . --fix",
+    "server": "node ./lib/server.js"
   },
   "author": "",
   "license": "ISC",
