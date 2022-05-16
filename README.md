@@ -5,6 +5,8 @@ Esta API está diseñada para ser consultada por una aplicación fron-end que se
 
 El proyecto fue diseñado en el sistema operativo ubuntu 20.04 LTS
 
+**¡Accede a la API!**: https://oceandex.azurewebsites.net
+
 ## Requisitos
 
 + Tener instalada la versión 12 de postgresql
@@ -26,13 +28,28 @@ DATABASE_URL="postgresql://{user}:{password}@localhost:5432/{table}?schema=publi
 5. Inicia el servidor con el comando `npm run start`
 7. Podrás entrar a la url: `http://localhost:3000/` para consultar la API
 #### Si planeas utilizar Azure
-Después del paso 2 del procedimiento
-1. Crea un archivo `.env` en la raiz de tu repositorio y configura la variable `DATABASE_URL`, copia la linea de código según sea tu caso.
- `nota`: Necesitas haber creado una **Web app** y una base de datos para **Postgres**(aquí consigues el user, password y url), ambas alojadas en Azure y configurar la base de datos para admitir peticiones por parte de la web app.
-// O si ya tienes una base de datos lista como servidor, copia la siguiente linea y reemplaza según corresponda
+1. Realiza un fork de este repositorio
+2. Crea tu base de datos y tu web app en Azure
+    1. Inicia sesión
+    2. Busca el sevicio de **App Service** en la barra de búsqueda y crea un nuevo App Service con Node versión 16 LTS
+    3. Busca el servicio de **Database for postgreSQL** en la barra de búsqueda y clickea en el apartado **PostgreSQL flexible server**. Crea tu base de datos (postgres versión 11) y asegúrate de permitir la conexión a esta base de datos desde la dirección **IP** de tu **App Service**.
+        + Guarda tu usuario y contraseña
+        + Dirígete al panel de configuración de tu base de datos; en tu barra lateral izquierda clickea en ***Connection String*** y guarda la sección `PostgreSQL connection URL`. A través de esta url nos comunicaremos con nuestra base de datos
+      
+4. Ingresa a Azure Portal. En la barra lateral izquierda busca el apartado y entra a **Deployment Center**. Una vez ahí:
+    1. En el apartado **Source**  selecciona GitHub. Ingresa a tu cuenta de GitHub y otórgale permisos a Azure para acceder a tus repositorios.
+    2. En **Organization** selecciona tu usuario, tu repositorio y la rama que deseas desplegar.
+    3. Podrás visualizar un workflow. El cual se agregará a tu **GitHub Actions**.
+    4. Al entrar a tu repositorio en GitHub, notarás que se ha hecho un commit agregando un solo archivo (el Workflow). Este workflow carga tu repositorio en una VR (Virtual Machine); instala las dependencias; ejecuta los test; si los test pasaron, empezará a comprimir y desplegar tu repositorio en la **App Service de Azure**
+
+#### Desplegar usando FTPS
+
+Alternativamente puedes utilizar un cliente FTP para acceder a tu **App Service**. Por ejemplo FileZilla. Simplemente completa hasta el paso 3 de la sección anterior ('Si planeas utilizar Azure'), configura tu .env (crea la variable `DATABASE_URL` y configurala) adecuadamente y configura tu cliente FTP para acceder al endpoint de tu App Service. Tanto el FTPS endpoint, como el usuario y contraseña los encontrarás en Azure Portal, en la misma sección de **Deployment Center**, en la pestaña de ***FTPS credentials***.
+
+En tu archivo .env, situado en la raíz de tu projecto agrega lo siguiente
+```
 DATABASE_URL="postgres://{user}:{password}@{url}=require"
-2. Configura tu **Web App** para realizar el deployment con tu repositorio de GitHub (local git, ftp), sigue los pasos que se te indican, otorga permisos para acceder a tu cuenta de GitHub. Se te mostrará un preview del workflow que se agregará a tu repositorio. Acéptalo y en consecuencia tendrás un nuevo workflow en tu **GitHub Actions**. Este workflow carga el repositorio, instala las dependencias del package.json , ejecuta los tests, comprime y transfiere los datos al servidor de tu Web App. ***IMPORTANTE***: Este workflow lo realiza cada commit. 
-3. Podrás acceder a tu servidor y realizar peticiones a tu API en la url de tu **Web App** creada y hosteada por Azure
+```
 
 ### EndPoints
 Descripción y path de todos los endpoints:
