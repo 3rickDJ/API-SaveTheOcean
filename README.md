@@ -6,6 +6,9 @@ Esta API está diseñada para ser consultada por una aplicación fron-end que se
 El proyecto fue diseñado en el sistema operativo ubuntu 20.04 LTS
 
 **¡Accede a la API!**: https://oceandex.azurewebsites.net
+## Diagrama 
+
+![image](https://user-images.githubusercontent.com/94492584/168661196-a4028332-83dc-4f9c-a9fe-c24411111cea.png)
 
 ## Requisitos
 
@@ -13,7 +16,7 @@ El proyecto fue diseñado en el sistema operativo ubuntu 20.04 LTS
 + Tener instalado node 16.15.0
 + Si quieres desplegarlo en azure, necesitarás una cuenta de azure
 
-### Instalación
+## Instalación
 
 1. Para poder clonar y utilizar efectivamente este proyecto ejecuta:
 ```
@@ -27,7 +30,7 @@ DATABASE_URL="postgresql://{user}:{password}@localhost:5432/{table}?schema=publi
 ```
 5. Inicia el servidor con el comando `npm run start`
 7. Podrás entrar a la url: `http://localhost:3000/` para consultar la API
-#### Si planeas utilizar Azure
+## Si planeas utilizar Azure
 1. Realiza un fork de este repositorio
 2. Crea tu base de datos y tu web app en Azure
     1. Inicia sesión
@@ -42,7 +45,7 @@ DATABASE_URL="postgresql://{user}:{password}@localhost:5432/{table}?schema=publi
     3. Podrás visualizar un workflow. El cual se agregará a tu **GitHub Actions**.
     4. Al entrar a tu repositorio en GitHub, notarás que se ha hecho un commit agregando un solo archivo (el Workflow). Este workflow carga tu repositorio en una VR (Virtual Machine); instala las dependencias; ejecuta los test; si los test pasaron, empezará a comprimir y desplegar tu repositorio en la **App Service de Azure**
 
-#### Desplegar usando FTPS
+## Desplegar usando FTPS
 
 Alternativamente puedes utilizar un cliente FTP para acceder a tu **App Service**. Por ejemplo FileZilla. Simplemente completa hasta el paso 3 de la sección anterior ('Si planeas utilizar Azure'), configura tu .env (crea la variable `DATABASE_URL` y configurala) adecuadamente y configura tu cliente FTP para acceder al endpoint de tu App Service. Tanto el FTPS endpoint, como el usuario y contraseña los encontrarás en Azure Portal, en la misma sección de **Deployment Center**, en la pestaña de ***FTPS credentials***.
 
@@ -51,7 +54,7 @@ En tu archivo .env, situado en la raíz de tu projecto agrega lo siguiente
 DATABASE_URL="postgres://{user}:{password}@{url}=require"
 ```
 
-### EndPoints
+## EndPoints
 Descripción y path de todos los endpoints:
 
 + Obtener todas las especies, path: `/especies`
