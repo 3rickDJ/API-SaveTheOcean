@@ -8,9 +8,11 @@ El proyecto fue diseñado en el sistema operativo ubuntu 20.04 LTS
 **¡Accede a la API!**: https://oceandex.azurewebsites.net
 ## Diagrama 
 
-![image](https://user-images.githubusercontent.com/94492584/168661196-a4028332-83dc-4f9c-a9fe-c24411111cea.png)
+![MyDrawing](https://user-images.githubusercontent.com/94492584/168702523-efa3d77c-9f8e-4748-bfe4-f34b14f7fce5.png)
+
 
 ## Requisitos
+
 
 + Tener instalada la versión 12 de postgresql
 + Tener instalado node 16.15.0
